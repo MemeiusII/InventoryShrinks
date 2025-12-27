@@ -1,0 +1,31 @@
+package me.EthanBilbrey.InventoryShrinks;
+
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+
+public class ChallengeInventoryManager 
+{
+	private static Player p;
+	private static int taskId;
+	private static int[] inventorySlots;
+	private static int slot;
+	
+	public ChallengeInventoryManager(Player p) 
+	{
+		this.p = p;
+		//first slot to take is 9, which is the top left slot
+		slot = 8;
+		inventorySlots = new int[45];
+		startChallenge();
+	}
+	private static void startChallenge() 
+	{
+		taskId = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), () -> {
+			
+		}, 6000L, 0L);
+	}
+	private static void cancelTask() 
+	{
+		Bukkit.getScheduler().cancelTask(taskId);
+	}
+}

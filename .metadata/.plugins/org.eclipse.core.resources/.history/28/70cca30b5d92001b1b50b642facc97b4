@@ -1,0 +1,12 @@
+package me.EthanBilbrey.InventoryShrinks;
+
+import org.bukkit.entity.Player;
+
+public class ChallengeInventoryManager 
+{
+	public static Player p;
+	public ChallengeInventoryManager(Player p) 
+	{
+		this.p = p;
+	}
+}

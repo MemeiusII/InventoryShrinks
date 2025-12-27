@@ -1,0 +1,35 @@
+package me.EthanBilbrey.InventoryShrinks;
+
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import net.md_5.bungee.api.ChatColor;
+
+public class Main extends JavaPlugin implements CommandExecutor, Listener
+{
+	@Override
+	public void onEnable() 
+	{
+		this.getCommand("isstart").setExecutor(this);
+	}
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) 
+    {
+    	if(sender instanceof Player) 
+    	{
+    		if(command.getName().equals("isstart")) 
+    		{
+    			sender.sendMessage(ChatColor.BOLD + "Challenge Started!");
+    			for(Player p : Bukkit.getOnlinePlayers()) 
+    			{
+    				ChallengeInventoryManager cim = new ChallengeInventoryManager(p);
+    			}
+    		}
+    	}
+        return true;
+    }
+}

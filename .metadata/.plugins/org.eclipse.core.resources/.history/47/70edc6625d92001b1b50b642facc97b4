@@ -1,0 +1,26 @@
+package me.EthanBilbrey.InventoryShrinks;
+
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+
+public class ChallengeInventoryManager 
+{
+	private static Player p;
+	private static int taskId;
+	
+	public ChallengeInventoryManager(Player p) 
+	{
+		this.p = p;
+		startChallenge();
+	}
+	private static void startChallenge() 
+	{
+		taskId = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), () -> {
+			
+		}, 0L, 6000L);
+	}
+	private static void cancelTask() 
+	{
+		Bukkit.getScheduler().cancelTask(taskId);
+	}
+}
